@@ -67,11 +67,11 @@ Here, `6` represents the number of available CPU cores.
 
 Before training, ensure the road network PostgreSQL server is set up by following the instructions in [Barefoot](https://github.com/boathit/barefoot).
 
-To train the model, navigate to the `Model` directory and run:
+To train the model, navigate to the `Model/ProbETA` directory and run:
 
 ```bash
-cd ProbETA/Model
-python train.py -datapath ../data/datapath
+cd ProbETA/Model/ProbETA
+python main.py -data_path ../data/datapath
 ```
 The dataset does not need to be manually split beforehand; it will be randomly divided into training and test sets automatically.
 Once training is complete, the model will automatically run evaluation on the test set.
