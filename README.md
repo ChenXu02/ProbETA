@@ -23,19 +23,16 @@ Python dependencies can be installed by referring to the source code.
 
 ## Dataset
 
-The dataset consists of over **1 million trips** collected by **13,000+ taxis** over a **5-day period**. While this dataset is a subset of the one used in our paper, it is sufficient to reproduce results that closely match those reported in our research.
+Harbin: The dataset consists of over **1 million trips** collected by **13,000+ taxis** over a **5-day period**.
+Chengdu: The dataset consists of over **1.4 million taxis** collecting more than **1.4 billion GPS records** over a **28-day period** (from **August 3, 2014, to August 30, 2014**).
 
 ### Download Dataset
 
 Download the dataset from the following link:
 
-[Download Dataset](https://drive.google.com/open?id=1tdgarnn28CM01o9hbeKLUiJ1o1lskrqA)
+Harbin: [Download Dataset](https://drive.google.com/open?id=1tdgarnn28CM01o9hbeKLUiJ1o1lskrqA)
+Chengdu: [Download Dataset](https://challenge.datacastle.cn/v3/cmptDetail.html?id=175)
 
-Extract the `*.h5` files and place them in the following directory:
-
-```
-deepgtt/data/h5path
-```
 
 ### Data Format
 
@@ -82,6 +79,9 @@ To train the model, navigate to the `Model` directory and run:
 cd ProbETA/Model
 python train.py -trainpath ../data/datapath
 ```
+The dataset does not need to be manually split beforehand; it will be randomly divided into training and test sets automatically.
+Once training is complete, the model will automatically run evaluation on the test set.
+
 
 ## Citation
 
