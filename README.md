@@ -98,5 +98,16 @@ If you use this repository in your research, please cite our paper:
 
 ---
 
-For any issues or questions, please open an issue on GitHub.
+Our data preprocessing is partially based on the following work, and we sincerely appreciate their contribution:
+
+```bibtex
+@inproceedings{www19xc,
+  author    = {Xiucheng Li and Gao Cong and Aixin Sun and Yun Cheng},
+  title     = {Learning Travel Time Distributions with Deep Generative Model},
+  booktitle = {Proceedings of the 2019 World Wide Web Conference on World Wide Web, {WWW} 2019, San Francisco, California, May 13-17, 2019},
+  year      = {2019},
+}
+```
+
+
 
