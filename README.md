@@ -46,7 +46,7 @@ To read `.h5` files, use the [`readtripsh5`](https://github.com/boathit/deepgtt/
 
 ## Preprocessing
 
-### 1. Map Matching
+### Map Matching
 
 Before training, trips must be map-matched using the [Barefoot](https://github.com/boathit/barefoot) matching server. Follow the instructions in the Barefoot repository to set up the required servers.
 
@@ -58,16 +58,6 @@ julia -p 6 mapmatch.jl --inputpath ../data/h5path --outputpath ../data/jldpath
 ```
 
 Here, `6` represents the number of available CPU cores.
-
-### 2. Generating Training, Validation, and Test Data
-
-Run the following command to process and split the dataset:
-
-```bash
-julia gentraindata.jl --inputpath ../data/jldpath --outputpath ../data/trainpath
-
-cd .. && mv data/trainpath/150106.h5 data/validpath && mv data/trainpath/150107.h5 data/testpath
-```
 
 ## Training the Model
 
