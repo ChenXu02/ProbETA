@@ -19,7 +19,11 @@ To install the required Julia packages, run the following command in your termin
 julia -e 'using Pkg; Pkg.add(["HDF5", "CSV", "DataFrames", "Distances", "StatsBase", "JSON", "Lazy", "JLD2", "ArgParse"])'
 ```
 
-Python dependencies can be installed by referring to the source code.
+To install the required Python packages, you can use the provided `requirements.txt` file. This file lists all necessary dependencies.
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Dataset
 
@@ -45,7 +49,7 @@ Each `.h5` file contains multiple trips recorded on a given day. Each trip consi
 - `lat` (latitude)
 - `tms` (timestamp)
 
-To read `.h5` files, use the [`readtripsh5`](https://github.com/boathit/deepgtt/blob/master/harbin/julia/Trip.jl#L28) function in Julia. If using your own dataset, refer to `readtripsh5` to format your trajectories correctly into `.h5` files.
+To read `.h5` files, use the [`readtripsh5`](https://github.com/boathit/ChenXu02/ProbETA/julia/Trip.jl#L28) function in Julia. If using your own dataset, refer to `readtripsh5` to format your trajectories correctly into `.h5` files.
 
 ## Preprocessing
 
