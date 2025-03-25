@@ -1,4 +1,4 @@
-# ProbETA
+# Implementation of ProbETA
 
 This repository contains the code used in our paper: [Link Representation Learning for Probabilistic Travel Time Estimation](https://arxiv.org/abs/2407.05895).
 
