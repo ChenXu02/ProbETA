@@ -19,7 +19,11 @@ To install the required Julia packages, run the following command in your termin
 julia -e 'using Pkg; Pkg.add(["HDF5", "CSV", "DataFrames", "Distances", "StatsBase", "JSON", "Lazy", "JLD2", "ArgParse"])'
 ```
 
-Python dependencies can be installed by referring to the source code.
+To install the required Python packages, you can use the provided `requirements.txt` file. This file lists all necessary dependencies.
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Dataset
 
