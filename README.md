@@ -46,7 +46,7 @@ Each `.h5` file contains multiple trips recorded on a given day. Each trip consi
 - `lat` (latitude)
 - `tms` (timestamp)
 
-To read `.h5` files, use the [`readtripsh5`](https://github.com/Chenxu02/ProbETA/julia/Trip.jl#L28) function in Julia. If using your own dataset, refer to `readtripsh5` to format your trajectories correctly into `.h5` files.
+To read `.h5` files, use the [`readtripsh5`](https://github.com/ChenXu02/ProbETA/tree/main/julia/Trip.jl#L28) function in Julia. If using your own dataset, refer to `readtripsh5` to format your trajectories correctly into `.h5` files.
 
 ## Preprocessing
 
