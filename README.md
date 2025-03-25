@@ -71,7 +71,7 @@ To train the model, navigate to the `Model` directory and run:
 
 ```bash
 cd ProbETA/Model
-python train.py -trainpath ../data/datapath
+python train.py -datapath ../data/datapath
 ```
 The dataset does not need to be manually split beforehand; it will be randomly divided into training and test sets automatically.
 Once training is complete, the model will automatically run evaluation on the test set.
