@@ -24,6 +24,7 @@ Python dependencies can be installed by referring to the source code.
 ## Dataset
 
 Harbin: The dataset consists of over **1 million trips** collected by **13,000+ taxis** over a **5-day period**.
+
 Chengdu: The dataset consists of over **1.4 million taxis** collecting more than **1.4 billion GPS records** over a **28-day period** (from **August 3, 2014, to August 30, 2014**).
 
 ### Download Dataset
@@ -31,7 +32,10 @@ Chengdu: The dataset consists of over **1.4 million taxis** collecting more than
 Download the dataset from the following link:
 
 Harbin: [Download Dataset](https://drive.google.com/open?id=1tdgarnn28CM01o9hbeKLUiJ1o1lskrqA)
+
 Chengdu: [Download Dataset](https://challenge.datacastle.cn/v3/cmptDetail.html?id=175)
+
+Extracting data from OpenStreetMap can be used to obtain the road network. You can download the road network data for Chengdu from [OpenStreetMap](https://www.openstreetmap.org/) and use it for map matching.
 
 
 ### Data Format
@@ -42,7 +46,7 @@ Each `.h5` file contains multiple trips recorded on a given day. Each trip consi
 - `lat` (latitude)
 - `tms` (timestamp)
 
-To read `.h5` files, use the [`readtripsh5`](https://github.com/boathit/deepgtt/blob/master/harbin/julia/Trip.jl#L28) function in Julia. If using your own dataset, refer to `readtripsh5` to format your trajectories correctly into `.h5` files.
+To read `.h5` files, use the [`readtripsh5`](https://github.com/Chenxu02/ProbETA/julia/Trip.jl#L28) function in Julia. If using your own dataset, refer to `readtripsh5` to format your trajectories correctly into `.h5` files.
 
 ## Preprocessing
 
@@ -61,7 +65,7 @@ Here, `6` represents the number of available CPU cores.
 
 ## Training the Model
 
-Before training, ensure the road network PostgreSQL server is set up by following the instructions in [Barefoot](https://github.com/boathit/barefoot). The road network server (referenced in [db_utils.py](https://github.com/boathit/deepgtt/blob/master/harbin/python/db_utils.py#L8)) provides road segment features required by the model.
+Before training, ensure the road network PostgreSQL server is set up by following the instructions in [Barefoot](https://github.com/boathit/barefoot).
 
 To train the model, navigate to the `Model` directory and run:
 
