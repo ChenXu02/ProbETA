@@ -1,106 +1,26 @@
-# ProbETA
+## Folder Structure
 
-This repository contains the code used in our paper: [Link Representation Learning for Probabilistic Travel Time Estimation](https://arxiv.org/abs/2407.05895).
+### 1. `mapmatching/`
+This folder contains all the code related to **map matching**. Map matching is a crucial step for aligning the GPS trajectories of the vehicles with the road network. This folder includes scripts and functions to:
+- Perform map matching on raw GPS data.
+- Extract and match trajectories to road segments.
+- Use external map matching tools and libraries (e.g., Barefoot).
 
-## Requirements
+You can run the map matching process by executing the provided Julia scripts in this folder. Make sure you have set up the map matching server as described in the **Preprocessing** section of the README.
 
-To run the code, ensure your system meets the following requirements:
+### 2. `ProbETA/`
+This folder contains the core code for **travel time prediction**. It implements the **ProbETA** model, which uses link representation learning for probabilistic travel time estimation. In this folder, you will find:
+- Training scripts to train the model with the prepared data.
+- Model definition and training routines.
+- Evaluation scripts for testing the trained model's performance.
+- Hyperparameter tuning and model optimization.
 
-- **Operating System**: Ubuntu (tested on versions 16.04 and 18.04)
-- **Programming Languages**:
-  - [Julia](https://julialang.org/downloads/) >= 1.0
-  - Python >= 3.6
-- **Deep Learning Framework**:
-  - PyTorch >= 0.4 (tested on versions 0.4 and 1.0)
+You will also find the `train.py` script to start the training process, along with the necessary configurations to handle data preprocessing, model training, and testing.
 
-To install the required Julia packages, run the following command in your terminal:
+### 3. `Results/`
+This folder stores all the **result images** produced during the experiments. These images typically include:
+- Training and validation performance curves (e.g., loss curves).
+- Model evaluation results (e.g., error metrics, travel time predictions).
+- Visualizations of the predicted and ground truth travel times.
 
-```bash
-julia -e 'using Pkg; Pkg.add(["HDF5", "CSV", "DataFrames", "Distances", "StatsBase", "JSON", "Lazy", "JLD2", "ArgParse"])'
-```
-
-To install the required Python packages, you can use the provided `requirements.txt` file. This file lists all necessary dependencies.
-
-```bash
-pip install -r requirements.txt
-```
-
-## Dataset
-
-The dataset consists of over **1 million trips** collected by **13,000+ taxis** over a **5-day period**. While this dataset is a subset of the one used in our paper, it is sufficient to reproduce results that closely match those reported in our research.
-
-### Download Dataset
-
-Download the dataset from the following link:
-
-[Download Dataset](https://drive.google.com/open?id=1tdgarnn28CM01o9hbeKLUiJ1o1lskrqA)
-
-Extract the `*.h5` files and place them in the following directory:
-
-```
-deepgtt/data/h5path
-```
-
-### Data Format
-
-Each `.h5` file contains multiple trips recorded on a given day. Each trip consists of three fields:
-
-- `lon` (longitude)
-- `lat` (latitude)
-- `tms` (timestamp)
-
-To read `.h5` files, use the [`readtripsh5`](https://github.com/boathit/ChenXu02/ProbETA/julia/Trip.jl#L28) function in Julia. If using your own dataset, refer to `readtripsh5` to format your trajectories correctly into `.h5` files.
-
-## Preprocessing
-
-### 1. Map Matching
-
-Before training, trips must be map-matched using the [Barefoot](https://github.com/boathit/barefoot) matching server. Follow the instructions in the Barefoot repository to set up the required servers.
-
-Once the servers are running, execute the following command to match trips:
-
-```bash
-cd ProbETA/julia
-julia -p 6 mapmatch.jl --inputpath ../data/h5path --outputpath ../data/jldpath
-```
-
-Here, `6` represents the number of available CPU cores.
-
-### 2. Generating Training, Validation, and Test Data
-
-Run the following command to process and split the dataset:
-
-```bash
-julia gentraindata.jl --inputpath ../data/jldpath --outputpath ../data/trainpath
-
-cd .. && mv data/trainpath/150106.h5 data/validpath && mv data/trainpath/150107.h5 data/testpath
-```
-
-## Training the Model
-
-Before training, ensure the road network PostgreSQL server is set up by following the instructions in [Barefoot](https://github.com/boathit/barefoot). The road network server (referenced in [db_utils.py](https://github.com/boathit/deepgtt/blob/master/harbin/python/db_utils.py#L8)) provides road segment features required by the model.
-
-To train the model, navigate to the `Model` directory and run:
-
-```bash
-cd ProbETA/Model
-python train.py -trainpath ../data/datapath
-```
-
-## Citation
-
-If you use this repository in your research, please cite our paper:
-
-```bibtex
-@article{xu2024link,
-  title={Link representation learning for probabilistic travel time estimation},
-  author={Xu, Chen and Wang, Qiang and Sun, Lijun},
-  journal={arXiv preprint arXiv:2407.05895},
-  year={2024}
-}
-```
-
----
-
-For any issues or questions, please open an issue on GitHub.
-
+These visualizations will help you analyze and compare the model's performance on different datasets.
