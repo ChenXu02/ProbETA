@@ -27,9 +27,9 @@ pip install -r requirements.txt
 
 ## Dataset
 
-Harbin: The dataset consists of over **1 million trips** collected by **13,000+ taxis** over a **5-day period**.
+Harbin: The dataset consists of over **1 million trips** collected by **13,000+ taxis**.
 
-Chengdu: The dataset consists of over **1.4 million taxis** collecting more than **1.4 billion GPS records** over a **28-day period** (from **August 3, 2014, to August 30, 2014**).
+Chengdu: The dataset consists of over **1.4 million taxis** collecting more than **1.4 billion GPS records**.
 
 ### Download Dataset
 
